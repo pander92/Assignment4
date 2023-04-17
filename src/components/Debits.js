@@ -16,6 +16,9 @@ const Debits = (props) => {
     });
   }
   // Render the list of Debit items and a form to input new Debit item
+  //seems like debitsView already set up to list id, amount, desc, and date. 
+  //will need to track id and date somehow
+  //otherwise utilize the onchange and onsubmit fuctinos shows in login.js
   return (
     <div>
       <h1>Debits</h1>
