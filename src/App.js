@@ -36,11 +36,17 @@ class App extends Component {
     this.setState({currentUser: newUser})
   }
 
+  //hit API to grab existing debits
   async componentDidMount() {
     let linkToAPI = 'https://johnnylaicode.github.io/api/debits.json';
     let response = await axios.get(linkToAPI);
     console.log(response);
     this.setState({debitList: response.data});
+
+    linkToAPI = 'https://johnnylaicode.github.io/api/credits.json';
+    response = await axios.get(linkToAPI);
+    console.log(response);
+    this.setState({creditList: response.data});
   }
 
   // Create Routes and React elements to be rendered using React components
