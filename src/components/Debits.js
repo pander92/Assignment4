@@ -6,6 +6,7 @@ Note: You need to work on this file for the Assignment.
 ==================================================*/
 import {Link} from 'react-router-dom';
 
+
 const Debits = (props) => {
   // Create the list of Debit items
   let debitsView = () => {
@@ -15,6 +16,9 @@ const Debits = (props) => {
       return <li key={debit.id}>{debit.amount} {debit.description} {date}</li>
     });
   }
+
+
+  
   // Render the list of Debit items and a form to input new Debit item
   //seems like debitsView already set up to list id, amount, desc, and date. 
   //will need to track id and date somehow
