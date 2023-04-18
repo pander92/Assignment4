@@ -47,6 +47,23 @@ class App extends Component {
     response = await axios.get(linkToAPI);
     console.log(response);
     this.setState({creditList: response.data});
+
+    const totalCredits = response.data.reduce((acc,current)=> acc+current.amount,0);
+    const totalDebits = response.data.reduce((acc,current)=> acc+current.amount,0); 
+    const accountBalance = totalCredits-totalDebits; 
+    this.setState({accountBalance});
+  }
+
+  calculateBalance() {
+    const totalCredits = this.state.creditList.reduce((acc, curr) => acc + curr.amount, 0);
+    const totalDebits = this.state.debitList.reduce((acc, curr) => acc + curr.amount, 0);
+    const accountBalance = totalCredits - totalDebits;
+    this.setState({ accountBalance });
+  }
+
+  addCredit = (e) =>{
+    const creditList=[...this.state.creditList,e];
+    this.setState({creditList},this.calculateBalance); 
   }
 
   // Create Routes and React elements to be rendered using React components
@@ -57,7 +74,7 @@ class App extends Component {
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
-    const CreditsComponent = () => (<Credits credits={this.state.creditList} />) 
+    const CreditsComponent = () => (<Credits credits={this.state.creditList} addCredit={this.addCredit}/>) 
     const DebitsComponent = () => (<Debits debits={this.state.debitList} />) 
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
