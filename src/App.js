@@ -55,8 +55,8 @@ class App extends Component {
   }
 
   calculateBalance() {
-    const totalCredits = this.state.creditList.reduce((acc, curr) => acc + curr.amount, 0);
-    const totalDebits = this.state.debitList.reduce((acc, curr) => acc + curr.amount, 0);
+    const totalCredits = this.state.creditList.reduce((acc, curr) => acc + curr.amount,0);
+    const totalDebits = this.state.debitList.reduce((acc, curr) => acc + curr.amount,0);
     const accountBalance = totalCredits - totalDebits;
     this.setState({ accountBalance });
   }
