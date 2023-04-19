@@ -26,10 +26,11 @@ handleAmountChange=(e)=>{ // updating the state with new amounts
 
 addCredit = (e)=>{ // updating the add credits
   e.preventDefault();
-  const {description,credit} = this.state; // collect the current state 
+  const {description,credit} = this.state; // collect the current state
+  let creditRounded = Math.round(100*parseFloat(credit))/100; 
   const newCredit = { 
     description,
-    amount: parseInt(credit),
+    amount: creditRounded,
     date: new Date().toISOString(),
   }; 
   this.props.addCredit(newCredit);

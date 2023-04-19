@@ -36,10 +36,11 @@ class Debits extends Component{
 
   addDebit = (e)=>{ // updating the add credits
     e.preventDefault();
-    const {description,debit} = this.state; // collect the current state 
+    const {description,debit} = this.state; // collect the current state
+    let debitRounded = Math.round(100*parseFloat(debit))/100;
     const newDebit = { 
       description,
-      amount: parseInt(debit),
+      amount: debitRounded, 
       date: new Date().toISOString(),
     }; 
     this.props.addDebit(newDebit);
