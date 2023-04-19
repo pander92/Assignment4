@@ -66,6 +66,11 @@ class App extends Component {
     this.setState({creditList},this.calculateBalance); 
   }
 
+  addDebit = (e) =>{
+    const debitList=[...this.state.debitList,e];
+    this.setState({debitList},this.calculateBalance); 
+  }
+
   // Create Routes and React elements to be rendered using React components
   render() {  
     // Create React elements and pass input props to components
