@@ -19,7 +19,7 @@ class App extends Component {
   constructor() {  // Create and initialize state
     super(); 
     this.state = {
-      accountBalance: 1234567.89,
+      accountBalance: 0,
       creditList: [],
       debitList: [],
       currentUser: {
@@ -43,22 +43,32 @@ class App extends Component {
     console.log(response);
     this.setState({debitList: response.data});
 
+    //must be done here as response data gets overwritten below
+    const totalDebits = response.data.reduce((acc,current)=> acc+current.amount,0); 
+    console.log("total debits: " + totalDebits);
+
     linkToAPI = 'https://johnnylaicode.github.io/api/credits.json';
     response = await axios.get(linkToAPI);
     console.log(response);
     this.setState({creditList: response.data});
 
+    //now calculate credits with new response data
     const totalCredits = response.data.reduce((acc,current)=> acc+current.amount,0);
-    const totalDebits = response.data.reduce((acc,current)=> acc+current.amount,0); 
-    const accountBalance = totalCredits-totalDebits; 
+    console.log("total credits: " +totalCredits);
+    
+    const accountBalance = totalCredits-totalDebits;
+    console.log("account balance: " + accountBalance)
     this.setState({accountBalance});
   }
 
   calculateBalance() {
+    let i = 1;
     const totalCredits = this.state.creditList.reduce((acc, curr) => acc + curr.amount,0);
     const totalDebits = this.state.debitList.reduce((acc, curr) => acc + curr.amount,0);
     const accountBalance = totalCredits - totalDebits;
     this.setState({ accountBalance });
+    console.log("count: "+ i + " calbal: " + accountBalance);
+    i++;
   }
 
   addCredit = (e) =>{
@@ -79,8 +89,8 @@ class App extends Component {
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
-    const CreditsComponent = () => (<Credits credits={this.state.creditList} addCredit={this.addCredit}/>) 
-    const DebitsComponent = () => (<Debits debits={this.state.debitList} addDebit={this.addDebit}/>) 
+    const CreditsComponent = () => (<Credits credits={this.state.creditList} addCredit={this.addCredit} accountBalance={this.state.accountBalance}/>) 
+    const DebitsComponent = () => (<Debits debits={this.state.debitList} addDebit={this.addDebit} accountBalance={this.state.accountBalance}/>) 
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (

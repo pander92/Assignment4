@@ -60,6 +60,9 @@ render(){
         <input type="text" name="amount" value={this.state.credit} onChange={this.handleAmountChange} placeholder='Amount'/>
         <button type="submit">Submit</button>
       </form>
+      <div>
+        Balance: {this.props.accountBalance}
+      </div>
       <Link to="/">Return to Home</Link>
     </div>
   );

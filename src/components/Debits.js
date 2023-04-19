@@ -65,6 +65,9 @@ class Debits extends Component{
         <input type="text" name="amount" value={this.state.debit} onChange={this.handleAmountChange} placeholder="Amount"/>
         <button type="submit">Add Debit</button>
       </form>
+      <div>
+        Balance: {this.props.accountBalance}
+      </div>
       <br/>
       <Link to="/">Return to Home</Link>
     </div>
