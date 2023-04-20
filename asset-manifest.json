@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/bank-of-react-example-code-gh-pages/static/css/main.01e685fb.css",
-    "main.js": "/bank-of-react-example-code-gh-pages/static/js/main.9f695b25.js",
-    "static/js/787.6058ec00.chunk.js": "/bank-of-react-example-code-gh-pages/static/js/787.6058ec00.chunk.js",
-    "index.html": "/bank-of-react-example-code-gh-pages/index.html",
-    "main.01e685fb.css.map": "/bank-of-react-example-code-gh-pages/static/css/main.01e685fb.css.map",
-    "main.9f695b25.js.map": "/bank-of-react-example-code-gh-pages/static/js/main.9f695b25.js.map",
-    "787.6058ec00.chunk.js.map": "/bank-of-react-example-code-gh-pages/static/js/787.6058ec00.chunk.js.map"
+    "main.css": "/Assignment4/static/css/main.01e685fb.css",
+    "main.js": "/Assignment4/static/js/main.1b21573e.js",
+    "static/js/787.6058ec00.chunk.js": "/Assignment4/static/js/787.6058ec00.chunk.js",
+    "index.html": "/Assignment4/index.html",
+    "main.01e685fb.css.map": "/Assignment4/static/css/main.01e685fb.css.map",
+    "main.1b21573e.js.map": "/Assignment4/static/js/main.1b21573e.js.map",
+    "787.6058ec00.chunk.js.map": "/Assignment4/static/js/787.6058ec00.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.01e685fb.css",
-    "static/js/main.9f695b25.js"
+    "static/js/main.1b21573e.js"
   ]
 }
